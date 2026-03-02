@@ -3,89 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/fondo.css">
+  <link rel="stylesheet" href="css/botones.css">
+  <link rel="stylesheet" href="css/cards.css">
   <link rel="stylesheet" href="css/estilos.css">
   <title>Portafolio Profesional Web</title>
 </head>
 <body>
   <div class="layout">
     <header>
-      <img src="img/lucas_alcoba.jpeg" alt="Lucas Alcoba fondo blanco">
+      <img src="img/icpc.png" alt="Lucas Alcoba fondo blanco">
       <h1>Hola que tal, soy Lucas Alcoba</h1>
+      
     </header>
 
     <aside>
-      <nav class="menu">
-        <a href="#">Sobre mi</a>
-        <a href="#">Habilidades</a>
-        <a href="#">Proyectos</a>
-        <a href="#">Formacion Academica</a>
-        <a href="#">Contactame</a>
+      <nav>
+        <a href="#sobreMi">
+          <button class="ui-btn">
+            <span>Sobre Mi</span>
+          </button>
+        </a>
+        <a href="#habilidades">
+          <button class="ui-btn">
+            <span>Habilidades</span>
+          </button>
+        </a>
+        <a href="#proyectos">
+          <button class="ui-btn">
+            <span>Proyectos</span>
+          </button>
+        </a>
+        </a>
+        <a href="#formacionAcademica">
+          <button class="ui-btn">
+            <span>Formacion Academica</span>
+          </button>
+        </a>
+        <a href="#contacto">
+          <button class="ui-btn">
+            <span>Contacto</span>
+          </button>
+        </a>
       </nav>
     </aside>
     
     <main>
-      <div class="sobreMi">
-        <h2>Sobre mi</h2>
+      <div class="sobreMi" id="sobreMi">
+        <h2>Sobre Mi</h2>
         <p>
-        Actualmente estudio Ingenieria de Sistemas en la Universidad Catolica Boliviana
+          Actualmente estudio <span class="highlight">Ingenieria de Sistemas</span> en la <span class="highlight">Universidad Catolica Boliviana</span>,
+          y participo en <span class="highlight">"Programacion Competitiva"</span> desde el <span class="highlight">2024</span>, con el equipo <span class="highlight">"Piton++"</span>. 
+          He participado en varias competencias a nivel regional y nacional, obteniendo buenos resultados y aprendiendo mucho en el proceso.
+          Me apasiona la programacion competitiva porque me permite mejorar mis habilidades de <span class="highlight">resolucion de problemas</span> y <span class="highlight">trabajo en equipo</span>.
         </p>
 
-        <h3>Competencias de programacion</h3>
-        <div class="cajita">
-          <h4>Cocha Somos Innova 2024</h4>
-          <img src="img/cochaInnova2024_collague.jpg" alt="Equipo Boris nos da miedo Premiacion - Podios - Foto Grupal">
-          <p></p>
-        </div>
-        <div class="cajita">
-          <h4>ICPC regional - Tarija 2024</h4>
-          <img src="img/tarija2024.jpeg" alt="Foto con banner antes de comenzar el evento ICPC 2024 en Tarija">
-        </div>
-        <div class="cajita">
-          <h4>Competencia interna Catolica 2025</h4>
-          <img src="img/cato2025.jpeg" alt="Equipo Pitón++ reunido en la habitacion que entrenan">
-          <p>Fue auspisiada por AssureSoft...</p>
-        </div>
-        <div class="cajita">
-          <h4>Cocha Somos Innova 2025</h4>
-          <img src="img/cochaSomosInnova2025.jpeg" alt="Equipo Piton++ premiacion">
-        </div>
-        <div class="cajita">
-          <h4>ICPC regional - Santa Cruz coccoc2025</h4>
-          <img src="img/icpcSantaCruz2025.jpeg" alt="Foto grupal Universidad Catolica Boliviana San Pablo Sede Cochabamba">
-        </div>
-        <div class="cajita">
-          <h4>Sansi Cup 2025</h4>
-          <img src="img/SansiCup2025.jpeg" alt="Medalla y premios Sansi Cup 2025">
+        <h3>Programacion Competitiva</h3>
+        <div class="cards-grid">
+          <div class="card">
+            <img src="img/cochaSomosInnova2024_2.jpeg" alt="Equipo Boris nos da miedo Premiacion - Podios - Foto Grupal">
+            <div class="card__content">
+              <p class="card__title">Cocha Somos Innova 2024</p>
+              <p class="card__description">Competencia organizada por la Alcaldia de Cochabamba.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/tarija2024.jpeg" alt="Foto con banner antes de comenzar el evento ICPC 2024 en Tarija">
+            <div class="card__content">
+              <p class="card__title">ICPC regional - Tarija 2024</p>
+              <p class="card__description">Competencia internacional de programacion organizada por la ICPC.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/cato2025.jpeg" alt="Equipo Pitón++ reunido en la habitacion que entrenan">
+            <div class="card__content">
+              <p class="card__title">Competencia interna Catolica 2025</p>
+              <p class="card__description">Fue auspiciada por AssureSoft.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/cochaSomosInnova2025.jpeg" alt="Equipo Piton++ premiacion">
+            <div class="card__content">
+              <p class="card__title">Cocha Somos Innova 2025</p>
+              <p class="card__description">Segunda participacion en Cocha Somos Innova con el equipo Piton++.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/icpcSantaCruz2025.jpeg" alt="Foto grupal Universidad Catolica Boliviana San Pablo Sede Cochabamba">
+            <div class="card__content">
+              <p class="card__title">ICPC regional - Santa Cruz 2025</p>
+              <p class="card__description">Competencia ICPC realizada en Santa Cruz de la Sierra.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/SansiCup2025_medalla.jpeg" alt="Medalla y premios Sansi Cup 2025">
+            <div class="card__content">
+              <p class="card__title">Sansi Cup 2025</p>
+              <p class="card__description">Competencia de programacion competitiva Sansi Cup 2025.</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="habilidades">
+      <div class="habilidades" id="habilidades">
         <h2>Habilidades</h2>
-
+        <div class="cards-grid">
+          <div class="card">
+            <img src="img/c_plus_plus.png" alt="Logo de C++">
+            <div class="card__content">
+              <p class="card__title">C++</p>
+              <p class="card__description">Lenguaje principal en programacion competitiva. Manejo de STL, algoritmos de grafos, estructuras de datos avanzadas y optimizacion.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/c-sharp.png" alt="Logo de C#">
+            <div class="card__content">
+              <p class="card__title">C#</p>
+              <p class="card__description">Desarrollo de aplicaciones con .NET. Experiencia en programacion orientada a objetos, LINQ y desarrollo de software de escritorio.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/graphs.png" alt="Icono de grafos y algoritmos">
+            <div class="card__content">
+              <p class="card__title">Algoritmos y Grafos</p>
+              <p class="card__description">Resolucion de problemas con BFS, DFS, Dijkstra, Floyd-Warshall y otras tecnicas clasicas de algoritmos y teoria de grafos.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="proyectos">
+      <div class="proyectos" id="proyectos">
         <h2>Proyectos</h2>
-
+        <div class="cards-grid">
+          <a href="https://github.com/diegooferruuu/BookstoreManagementSystemMicroServices" target="_blank" class="card-link">
+            <div class="card">
+              <img src="img/github_1051326.png" alt="Bookstore Management System MicroServices">
+              <div class="card__content">
+                <p class="card__title">Bookstore Management System</p>
+                <p class="card__description">Sistema de gestion de libreria con arquitectura de microservicios. Desarrollado en C#, con 6 colaboradores. Incluye modulos de ventas, productos, clientes y reportes.</p>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
 
-      <div class="formacionAcademica">
+      <div class="formacionAcademica" id="formacionAcademica">
         <h2>Formacion Academica</h2>
-
+<div class="cards-grid">
+          <div class="card">
+            <img src="img/excelencia_academica.jpeg" alt="Reconocimiento de Excelencia Academica">
+            <div class="card__content">
+              <p class="card__title">Excelencia Academica</p>
+              <p class="card__description">Reconocimiento otorgado por la Universidad Catolica Boliviana San Pablo por mantener un promedio sobresaliente durante el semestre academico.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="contacto">
+      <div class="contacto" id="contacto">
         <h2>Formulario de contacto</h2>
-
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electronico</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+          </div>
+          <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" placeholder="Asunto del mensaje" required>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aqui..." required></textarea>
+          </div>
+          <button type="submit" class="ui-btn"><span>Enviar mensaje</span></button>
+        </form>
       </div>
     </main>
 
     <footer>
       <p>© 2026 Lucas Sebastian Alcoba Cardona</p>
-      <img src="img/linkedin_2931621.png" alt="Linkedin logo/link">
-      <img src="img/github_1051326.png" alt="Git hub logo/link">
-      <img src="img/instagram_1419647.png" alt="Instagram logo/link">
+      <a href="https://www.linkedin.com" target="_blank"><img src="img/linkedin_2931621.png" alt="Linkedin logo/link"></a>
+      <a href="https://github.com/LokoAddams" target="_blank"><img src="img/github_1051326.png" alt="Git hub logo/link"></a>
+      <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram_1419647.png" alt="Instagram logo/link"></a>
     </footer>
   </div>
+  <script src="js/main.js"></script>
 </body>
 </html>
