@@ -62,3 +62,26 @@
   scale: 0;
   transform: rotate(-45deg);
 }
+
+/* ── Touch devices: show card content without hover ── */
+@media (hover: none) {
+  .card__content {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.78);
+  }
+  .card__title {
+    color: #fff;
+  }
+  .card__description {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .card:hover img {
+    scale: 1;
+    transform: none;
+  }
+}

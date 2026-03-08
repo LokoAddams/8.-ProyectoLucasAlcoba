@@ -34,5 +34,12 @@ body{
       rgba(0,0,0,0.85) 100%
     );
 
-  background-attachment: fixed;
+  /* scroll on mobile – fixed causes rendering bugs on iOS */
+  background-attachment: scroll;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+  }
 }

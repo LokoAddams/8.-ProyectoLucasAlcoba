@@ -1,187 +1,339 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-@mixin ubuntu-regular{
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+@mixin ubuntu-regular {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-@mixin ubuntu-bold{
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+@mixin ubuntu-bold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
-*{
-  margin: 1vw;
-  color: white;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+
+:root {
+  --color-text: #ffffff;
+  --color-highlight: #f5c518;
+  --color-header-bg: rgba(5, 7, 10, 0.92);
+  --color-input-bg: rgba(255, 255, 255, 0.08);
+  --color-input-border: rgba(255, 255, 255, 0.2);
+  --color-input-placeholder: rgba(255, 255, 255, 0.35);
+  --space-layout-x: 4vw;
+  --space-section-y: 16px;
+  --space-element: 16px;
+  --space-nav: 8px;
+  --radius-input: 8px;
 }
-img{
+
+/* ── RESET & BASE ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+}
+img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
 }
-h1, h2, h3, h4{
+h1, h2, h3, h4 {
   @include ubuntu-bold;
 }
-p, a{
+p, a {
   @include ubuntu-regular;
   text-decoration: none;
 }
 
-.layout{
+/* ── LAYOUT – mobile base (single column) ── */
+.layout {
   display: grid;
-  grid-template-columns: 15vw 50vw;
-  grid-template-rows: 15vh 1fr 10vh;
-  grid-template-areas: 
-    "header header"
-    "aside main"
-    "footer footer";
-  min-height:100vh;
-  max-width: 65vw;
-  /*
-  ¿por que es necesario usar min-height?
-  Si el contenido fuese menos que 100vh,
-  el footer se quedaría a mitad de la pantalla,
-   y no al final, 
-   lo que no es deseable.
-  */
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "aside"
+    "main"
+    "footer";
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 var(--space-layout-x);
 }
-header{
-  display: flex;
-  grid-area: header;
-  max-width: 100%;
-  max-height: 20vh;
-  h1{
-    align-self: center;
-    justify-self: center;
-    @include ubuntu-bold;
 
-    // Se oculta cuando se hace scroll
+header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  max-height: 60px;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+
+  h1 {
+    font-size: 1rem;
+    @include ubuntu-bold;
     opacity: 1;
     transition: opacity 0.4s ease, transform 0.4s ease;
-    &.hidden{
+    &.hidden {
       opacity: 0;
       transform: translateY(-20px);
     }
   }
-  img{
-   height: 100%;
-   margin: 0px !important; 
+  img {
+    height: 40px;
+    width: auto;
+    margin: 0 !important;
   }
+}
 
-  position: sticky;
-  top: 0vh;
-}
-aside{
+aside {
   grid-area: aside;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   width: 100%;
-  position: sticky;
-  top: 15vh;
-  align-self: start;
-  nav{
-    
+  padding: 12px 0;
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-nav);
+    justify-content: center;
+    align-items: stretch;
   }
 }
-.sobreMi{
+
+main {
+  grid-area: main;
+  width: 100%;
+  padding: 8px 0;
+}
+
+/* ── SECTIONS ── */
+.sobreMi,
+.habilidades,
+.proyectos,
+.formacionAcademica,
+.contacto {
   display: flex;
   flex-direction: column;
   width: 100%;
-  > * {
-    margin: 2vh 2vw;
-  }
-  align-items: center;
-  > p {
-    text-align: justify;
-    width: 100%;
-  }
+  padding: var(--space-section-y) 0;
+  gap: var(--space-element);
+  h2 { font-size: 1.4rem; }
 }
-.cards-grid{
+
+.sobreMi > p {
+  text-align: justify;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── CARDS GRID – 1 column on mobile ── */
+.cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2vh 2vw;
+  grid-template-columns: 1fr;
+  gap: var(--space-element);
   width: 100%;
 }
-.card-link{
+.card-link {
   display: contents;
 }
 
-main{
-  grid-area: main;
-  margin: 1vw;
-  width: 100%;
-}
-.habilidades{
-  justify-content: center;
-}
-footer{
+/* ── FOOTER ── */
+footer {
   grid-area: footer;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  img{
-    height: 40px;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+  text-align: center;
+  img {
+    height: 36px;
     width: auto;
   }
-  a{
+  a {
     display: flex;
     align-items: center;
   }
 }
-.ui-btn{
+footer a img {
+  background-color: white;
+  margin: 4px;
+}
+
+/* ── MISC ── */
+.ui-btn {
   width: 100%;
 }
-.highlight{
-  color: #f5c518;
+.highlight {
+  color: var(--color-highlight);
   font-weight: 700;
 }
-.contacto{
-  > * {
-    margin: 0vw !important;
-  }
-}
-.contact-form{
+
+/* ── CONTACT FORM ── */
+.contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5vh;
+  gap: 14px;
   width: 100%;
-  .form-group{
+  .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5vh;
-    label{
+    gap: 6px;
+    label {
       font-size: 0.9rem;
-      color: #f5c518;
+      color: var(--color-highlight);
       font-weight: 700;
     }
-    input, textarea{
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 8px;
-      padding: 0.8vh 1vw;
-      color: white;
+    input, textarea {
+      background: var(--color-input-bg);
+      border: 1px solid var(--color-input-border);
+      border-radius: var(--radius-input);
+      padding: 10px 14px;
+      color: var(--color-text);
       font-size: 1rem;
       font-family: "Ubuntu", sans-serif;
       transition: border 0.3s ease;
       resize: vertical;
-      &::placeholder{
-        color: rgba(255,255,255,0.35);
+      &::placeholder {
+        color: var(--color-input-placeholder);
       }
-      &:focus{
+      &:focus {
         outline: none;
-        border-color: #f5c518;
+        border-color: var(--color-highlight);
       }
     }
   }
 }
-footer a img{
-  margin: 1vw;
-  background-color: white;
+
+/* ══════════════════════════════════════════
+  TABLET  ≥ 768px
+══════════════════════════════════════════ */
+@media (min-width: $breakpoint-tablet) {
+  header {
+    max-height: 70px;
+    h1 { font-size: 1.2rem; }
+    img { height: 55px; }
+  }
+
+  aside {
+    nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .ui-btn {
+    width: auto;
+  }
+
+  .sobreMi,
+  .habilidades,
+  .proyectos,
+  .formacionAcademica,
+  .contacto {
+    gap: 20px;
+  }
+
+  footer {
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: left;
+    img { height: 40px; }
+  }
 }
-footer a{
-  
+
+/* ══════════════════════════════════════════
+   DESKTOP  ≥ 1024px
+══════════════════════════════════════════ */
+@media (min-width: $breakpoint-laptop) {
+  .layout {
+    grid-template-columns: 16vw minmax(0, 1fr);
+    grid-template-rows: 15vh 1fr 10vh;
+    grid-template-areas:
+      "header header"
+      "aside main"
+      "footer footer";
+    max-width: 65vw;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  header {
+    max-height: 20vh;
+    background-color: transparent;
+    backdrop-filter: none;
+    h1 {
+      font-size: 1.8rem;
+      align-self: center;
+    }
+    img { height: 100%; }
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: sticky;
+    top: 15vh;
+    align-self: start;
+    padding: 0;
+    nav {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 0;
+    }
+  }
+
+  main {
+    margin: 1vw;
+    padding: 0;
+  }
+
+  .sobreMi,
+  .habilidades,
+  .proyectos,
+  .formacionAcademica {
+    gap: 0;
+    padding: 0;
+    > * { margin: 2vh 2vw; }
+  }
+  .sobreMi { align-items: center; }
+
+  .contacto {
+    gap: 0;
+    padding: 0;
+    > * { margin: 0 !important; }
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2vh 2vw;
+  }
+
+  .ui-btn { width: 100%; }
+
+  .contact-form {
+    gap: 1.5vh;
+    .form-group {
+      gap: 0.5vh;
+      input, textarea { padding: 0.8vh 1vw; }
+    }
+  }
+
+  footer a img { margin: 1vw; }
 }
